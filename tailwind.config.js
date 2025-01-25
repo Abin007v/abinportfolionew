@@ -10,6 +10,9 @@ module.exports = {
         fontFamily: {
           'roboto': ['Roboto', 'sans-serif'],
           'open-sans': ['Open Sans', 'sans-serif'],
+          'poppins': ['Poppins', 'sans-serif'],
+          'montserrat': ['Montserrat', 'sans-serif'],
+          'inter': ['Inter', 'sans-serif'],
         },
         clipPath: {
           'polygon': 'polygon(0% 0%, 100% 0%, 100% 75%, 75% 75%, 75% 100%, 50% 75%, 0% 75%)',

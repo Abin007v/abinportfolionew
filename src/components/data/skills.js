@@ -1,6 +1,6 @@
 const skillobj = [
   {
-    name: "front-end",
+    name: "Front-End",
     skillatributes: [
       {
         skillname: "HTML/CSS",
@@ -35,7 +35,7 @@ const skillobj = [
     ],
   },
   {
-    name: "back-end",
+    name: "Back-End",
     skillatributes: [
       {
         skillname: "nodejs",
@@ -81,7 +81,7 @@ const skillobj = [
     ],
   },
   {
-    name: "version control",
+    name: "Version Control",
     skillatributes: [
       {
         skillname: "git",

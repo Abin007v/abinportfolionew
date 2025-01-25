@@ -157,7 +157,7 @@ function Index() {
                   initial={{ opacity: 0, y: 20 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.5, delay: 0.3 }}
-                  className="text-5xl md:text-6xl capitalize tracking-[0.25rem] leading-tight mb-3 font-['Roboto']"
+                  className="text-5xl md:text-6xl capitalize tracking-[0.25rem] leading-tight mb-3 font-montserrat font-bold"
                 >
                   <motion.span
                     initial={{ opacity: 0 }}
@@ -179,9 +179,9 @@ function Index() {
                   initial={{ opacity: 0, x: -50 }}
                   whileInView={{ opacity: 1, x: 0 }}
                   transition={{ duration: 0.5, delay: 0.7 }}
-                  className="text-sm md:text-base text-[#617d98] mb-6 tracking-[0.25rem]"
+                  className="text-sm md:text-base text-[#617d98] mb-6 tracking-[0.25rem] font-inter"
                 >
-                  Full-stack webdevoloper
+                  Full-Stack Web Developer
                 </motion.h4>
                 <motion.div
                   initial={{ opacity: 0, y: 20 }}
@@ -370,8 +370,8 @@ function Index() {
                   whileInView={{ opacity: 1, y: 0 }}
                   transition={{ delay: 0.8 }}
                 >
-                  <h2 className="text-3xl sm:text-4xl capitalize tracking-[0.25rem] leading-tight mb-3 font-['Roboto']">
-                    about
+                  <h2 className="text-4xl capitalize tracking-[0.25rem] leading-tight mb-3 font-montserrat font-semibold">
+                    About
                   </h2>
                   <motion.div 
                     initial={{ width: 0 }}
@@ -384,7 +384,7 @@ function Index() {
                   initial={{ opacity: 0, y: 20 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   transition={{ delay: 1.2 }}
-                  className="text-[#617d98] text-sm sm:text-base leading-relaxed sm:leading-loose font-['Open_Sans'] tracking-wide"
+                  className="text-[#617d98] text-sm sm:text-base leading-relaxed sm:leading-loose font-inter tracking-wide"
                 >
                   {about}
                 </motion.p>
@@ -406,7 +406,7 @@ function Index() {
               transition={{ delay: 0.2 }}
               className="text-center mb-16"
             >
-              <h2 className="text-4xl capitalize tracking-[0.25rem] leading-tight mb-3 font-['Roboto']">
+              <h2 className="text-4xl capitalize tracking-[0.25rem] leading-tight mb-3 font-montserrat font-semibold">
                 Projects
               </h2>
               <div className="w-20 h-1 bg-[#feb649] mx-auto"></div>
@@ -450,8 +450,7 @@ function Index() {
             ref={skillsRef}
             initial="offscreen"
             whileInView="onscreen"
-            viewport={{ once: true, amount: 0.3 }}
-            whileHover="hover"
+            viewport={{ once: true, amount: 0.2 }}
             className="relative py-20 cursor-pointer"
           >
             {/* Background Container */}
@@ -460,54 +459,61 @@ function Index() {
             <motion.div 
               initial={{ opacity: 0 }}
               whileInView={{ opacity: 1 }}
-              transition={{ delay: 0.2 }}
+              transition={{ duration: 0.5 }}
               className="w-[90vw] mx-auto max-w-[1170px]"
             >
               <div className="text-center mb-16">
-                <h2 className="text-4xl capitalize tracking-[0.25rem] leading-tight mb-3 font-['Roboto']">
+                <h2 className="text-4xl capitalize tracking-[0.25rem] leading-tight mb-3 font-montserrat font-semibold">
                   skills
                 </h2>
                 <div className="w-20 h-1 bg-[#feb649] mx-auto"></div>
-              </div>
+        </div>
               
               <div className="grid gap-8 md:grid-cols-2">
                 {skillobj.map((item, id) => (
                   <motion.article 
                     key={id}
-                    initial={{ opacity: 0, x: id % 2 === 0 ? -50 : 50 }}
-                    whileInView={{ opacity: 1, x: 0 }}
-                    transition={{ delay: id * 0.2 }}
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    transition={{ 
+                      duration: 0.5,
+                      delay: id * 0.1
+                    }}
                     className="mb-8"
                   >
-                    <h3 className="text-2xl mb-6 text-[#453227] font-['Roboto'] tracking-wide">
+                    <h3 className="text-2xl mb-6 text-[#453227] font-montserrat font-semibold tracking-wide">
                       {item.name}
                     </h3>
                     {item.skillatributes.map((x, i) => (
                       <motion.div 
                         key={i}
                         initial={{ width: 0 }}
-                        whileInView={{ width: x.percentage }}
-                        transition={{ duration: 1, delay: i * 0.1 }}
+                        whileInView={{ width: "100%" }}
+                        transition={{ 
+                          duration: 0.8,
+                          delay: i * 0.05,
+                          ease: "easeOut"
+                        }}
                         className="mb-5"
                       >
-                        <p className="capitalize mb-2 text-[#453227] font-['Open_Sans'] text-base tracking-wider">
-                          {x.skillname}
+                        <p className="mb-2 text-[#453227] font-inter text-base tracking-wider">
+                          {x.skillname.toUpperCase()}
                         </p>
                         <div className="h-4 bg-white rounded-md">
                           <div 
                             className={`h-full bg-[#feb649] rounded-md relative`}
                             style={{ width: x.percentage }}
                           >
-                            <span className="absolute -top-8 transform -translate-x-1/2 text-[#453227] left-full top-[0.8rem] font-['Open_Sans'] font-medium" >
+                            <span className="absolute -top-8 transform -translate-x-1/2 text-[#453227] left-full top-[0.8rem] font-inter font-medium" >
                               {x.percentage}
                             </span>
-                          </div>
-                        </div>
+                      </div>
+                    </div>
                       </motion.div>
                     ))}
                   </motion.article>
                 ))}
-              </div>
+        </div>
             </motion.div>
           </motion.section>
 
@@ -517,33 +523,34 @@ function Index() {
             ref={contactRef}
             initial="offscreen"
             whileInView="onscreen"
-            viewport={{ once: true, amount: 0.3 }}
-            whileHover="hover"
+            viewport={{ once: true, amount: 0.2 }}
             className="relative py-16 mb-20 cursor-pointer overflow-hidden"
           >
-            {/* Video Background Container */}
-            <div className="absolute inset-x-0 top-0 bottom-0 w-[90%] md:w-[85%] mx-auto -z-20 h-full"
-            >
+            {/* Background Image Container */}
+            <div className="absolute inset-x-0 top-0 bottom-0 w-[90%] md:w-[85%] mx-auto -z-20 h-full">
               <div className="relative w-full h-full rounded-2xl overflow-hidden">
-                <video
-                  autoPlay
-                  muted
-                  loop
-                  className="absolute inset-0 w-full h-full object-cover"
-                  poster={project1}
+                <motion.div 
+                  initial={{ scale: 1.05 }}
+                  whileInView={{ scale: 1 }}
+                  transition={{ duration: 1, ease: "easeOut" }}
+                  className="w-full h-full"
                 >
-                  <source src={vid} type="video/mp4" />
-                </video>
+                  <img
+                    src={project1}
+                    alt="background"
+                    className="absolute inset-0 w-full h-full object-cover object-center"
+                  />
+                  <div className="absolute inset-0 bg-black/20" />
+                </motion.div>
               </div>
-            </div>
-            
+          </div>
+
             <motion.div 
-              initial={{ y: 100, opacity: 0 }}
+              initial={{ y: 50, opacity: 0 }}
               whileInView={{ y: 0, opacity: 1 }}
               transition={{ 
-                duration: 0.8,
-                type: "spring",
-                bounce: 0.3
+                duration: 0.5,
+                ease: "easeOut"
               }}
               className="w-[90vw] max-w-[800px] mx-auto relative"
             >
@@ -551,11 +558,11 @@ function Index() {
                 className="bg-white/90 backdrop-blur-sm p-8 sm:p-12 text-center rounded-2xl shadow-xl"
                 initial={{ y: 20, opacity: 0 }}
                 whileInView={{ y: 0, opacity: 1 }}
-                transition={{ delay: 0.2, duration: 0.5 }}
+                transition={{ duration: 0.5, ease: "easeOut" }}
               >
                 <div className="mb-8">
-                  <h2 className="text-4xl capitalize tracking-[0.25rem] leading-tight mb-3 font-['Roboto']">
-                    let's get in touch
+                  <h2 className="text-4xl capitalize tracking-[0.25rem] leading-tight mb-3 font-montserrat font-semibold">
+                    Let's Get In Touch
                   </h2>
                   <div className="w-20 h-1 bg-[#feb649] mx-auto"></div>
                 </div>
@@ -565,7 +572,7 @@ function Index() {
                   transition={{ delay: 0.4, duration: 0.5 }}
                   className="mx-auto px-4"
                 >
-                  <div className="flex flex-col items-center justify-center gap-2 text-[#617d98] text-lg mb-4">
+                  <div className="flex flex-col items-center justify-center gap-2 text-[#617d98] text-lg mb-4 font-inter">
                     <span>If you are looking to get ahold of me, you can send me an email at</span>
                     <motion.a 
                       href="mailto:abinvv9108834737@gmail.com" 
@@ -575,9 +582,9 @@ function Index() {
                     >
                       abinvv9108834737@gmail.com
                     </motion.a>
-                  </div>
+        </div>
 
-                  <div className="flex flex-col items-center justify-center gap-2 text-[#617d98] text-lg mb-4">
+                  <div className="flex flex-col items-center justify-center gap-2 text-[#617d98] text-lg mb-4 font-inter">
                     <span>You can also reach me on LinkedIn at</span>
                     <motion.a 
                       href="https://www.linkedin.com/in/abin-vinod-a50b65227"
@@ -601,8 +608,8 @@ function Index() {
             className="pb-8 bg-[#222] grid place-items-center"
           >
             <SocialLinks isFooter={true} />
-            <p className="text-lg capitalize text-[#feb649]">
-              &copy; <span id="date">{new Date().getFullYear()}</span> abin v v. all rights reserved
+            <p className="text-lg capitalize text-[#feb649] font-poppins">
+              &copy; <span id="date">{new Date().getFullYear()}</span> Abin V V. All Rights Reserved
             </p>
           </motion.footer>
         </motion.div>
