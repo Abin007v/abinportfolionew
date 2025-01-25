@@ -450,17 +450,17 @@ function Index() {
             ref={skillsRef}
             initial="offscreen"
             whileInView="onscreen"
-            viewport={{ once: true, amount: 0.2 }}
+            viewport={{ once: true, amount: 0.1 }}
             className="relative py-20 cursor-pointer"
           >
             {/* Background Container */}
-            <div className="absolute inset-x-0 w-[90%] md:w-[85%] h-[90%] mx-auto bg-[#fef9e7] rounded-2xl -z-10" />
+            <div className="absolute inset-x-0 w-[90%] md:w-[85%] h-[90%] mx-auto bg-[#fdf3d7] rounded-2xl -z-10" />
 
             <motion.div 
               initial={{ opacity: 0 }}
               whileInView={{ opacity: 1 }}
-              transition={{ duration: 0.5 }}
-              className="w-[90vw] mx-auto max-w-[1170px]"
+              transition={{ duration: 0.3 }}
+              className="w-[90vw] mx-auto max-w-[1170px] pt-8 md:pt-12"
             >
               <div className="text-center mb-16">
                 <h2 className="text-4xl capitalize tracking-[0.25rem] leading-tight mb-3 font-montserrat font-semibold">
@@ -473,47 +473,41 @@ function Index() {
                 {skillobj.map((item, id) => (
                   <motion.article 
                     key={id}
-                    initial={{ opacity: 0, y: 20 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    transition={{ 
-                      duration: 0.5,
-                      delay: id * 0.1
-                    }}
+                    initial={{ opacity: 0 }}
+                    whileInView={{ opacity: 1 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.5 }}
                     className="mb-8"
                   >
                     <h3 className="text-2xl mb-6 text-[#453227] font-montserrat font-semibold tracking-wide">
                       {item.name}
                     </h3>
                     {item.skillatributes.map((x, i) => (
-                      <motion.div 
-                        key={i}
-                        initial={{ width: 0 }}
-                        whileInView={{ width: "100%" }}
-                        transition={{ 
-                          duration: 0.8,
-                          delay: i * 0.05,
-                          ease: "easeOut"
-                        }}
-                        className="mb-5"
-                      >
-                        <p className="mb-2 text-[#453227] font-inter text-base tracking-wider">
+                      <div key={i} className="mb-8">
+                        <p className="mb-3 text-[#453227] font-inter text-base tracking-wider">
                           {x.skillname.toUpperCase()}
                         </p>
-                        <div className="h-4 bg-white rounded-md">
-                          <div 
-                            className={`h-full bg-[#feb649] rounded-md relative`}
-                            style={{ width: x.percentage }}
+                        <div className="h-6 bg-white rounded-md overflow-hidden">
+                          <motion.div 
+                            initial={{ width: 0 }}
+                            whileInView={{ width: x.percentage }}
+                            viewport={{ once: true }}
+                            transition={{ 
+                              duration: 1.2,
+                              ease: [0.4, 0, 0.2, 1]
+                            }}
+                            className="h-full bg-[#feb649] rounded-md relative"
                           >
-                            <span className="absolute -top-8 transform -translate-x-1/2 text-[#453227] left-full top-[0.8rem] font-inter font-medium" >
+                            <span className="absolute right-2 text-[#453227] top-1/2 -translate-y-1/2 font-inter font-medium">
                               {x.percentage}
                             </span>
+                          </motion.div>
+                        </div>
                       </div>
-                    </div>
-                      </motion.div>
                     ))}
                   </motion.article>
                 ))}
-        </div>
+                    </div>
             </motion.div>
           </motion.section>
 
@@ -524,7 +518,7 @@ function Index() {
             initial="offscreen"
             whileInView="onscreen"
             viewport={{ once: true, amount: 0.2 }}
-            className="relative py-16 mb-20 mt-20 cursor-pointer overflow-hidden"
+            className="relative py-16 mb-20 mt-[6vh] cursor-pointer overflow-hidden"
           >
             {/* Background Image Container */}
             <div className="absolute inset-x-0 top-0 bottom-0 w-[90%] md:w-[85%] mx-auto -z-20 h-full h-70">
@@ -542,7 +536,7 @@ function Index() {
                   />
                   <div className="absolute inset-0 bg-black/20" />
                 </motion.div>
-              </div>
+        </div>
           </div>
 
             <motion.div 
@@ -576,7 +570,7 @@ function Index() {
                     <span>If you are looking to get ahold of me, you can send me an email at</span>
                     <motion.a 
                       href="mailto:abinvv9108834737@gmail.com" 
-                      className="text-[#feb649] uppercase hover:text-[#453227] transition-colors duration-300 break-all text-center"
+                      className="text-[#feb649]  hover:text-[#453227] transition-colors duration-300 break-all text-center"
                       whileHover={{ scale: 1.05 }}
                       whileTap={{ scale: 0.95 }}
                     >
@@ -588,7 +582,7 @@ function Index() {
                     <span>You can also reach me on LinkedIn at</span>
                     <motion.a 
                       href="https://www.linkedin.com/in/abin-vinod-a50b65227"
-                      className="text-[#feb649] uppercase hover:text-[#453227] transition-colors duration-300 break-all text-center"
+                      className="text-[#feb649]  hover:text-[#453227] transition-colors duration-300 break-all text-center"
                       whileHover={{ scale: 1.05 }}
                       whileTap={{ scale: 0.95 }}
                     >

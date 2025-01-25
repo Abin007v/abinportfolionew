@@ -67,10 +67,10 @@ const skillobj = [
     name: "Problem Solving",
     skillatributes: [
       {
-        skillname: "Data Structures and Algorithms",
+        skillname: "DSA",
         valueclass: "",
-        valueper: "skill-text-extra-50 ",
-        percentage: "50%",
+        valueper: "skill-text-extra-70 ",
+        percentage: "70%",
       },
       {
         skillname: "c++",
