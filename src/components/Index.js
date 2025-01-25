@@ -1,15 +1,15 @@
 import React, { useState, useRef, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion"; 
- 
+
 import project1 from "./images/project-1.jpeg";
 import projectObj from "./data/projectsObj";
 import skillobj from "./data/skills";
-import profilepic from "./data/profilepic/portfolioPic.jpg"; 
+import profilepic from "./data/profilepic/portfolioPic.jpg";
 import vid from "./videos/jsvid.mp4";
 import SocialLinks from "./links/SocialLinks";
 
-function Index() { 
+function Index() {
   const aboutImg =
     "https://res.cloudinary.com/dykmiet9x/image/upload/v1646158420/yjnuq4pbqpyhsrvoiudj.jpg";
   const about =
@@ -192,8 +192,8 @@ function Index() {
                     }}
                     className="uppercase bg-[#feb649] text-[#453227] px-3 py-1.5 tracking-[0.25rem] inline-block font-bold transition-all duration-300 text-sm border-2 border-transparent cursor-pointer shadow-md rounded-md hover:bg-[#fecd7b] hover:text-[#453227]"
                   >
-                    hire me
-                  </Link>
+              hire me
+            </Link>
                 </motion.div>
                 <motion.div
                   initial={{ opacity: 0, y: 20 }}
@@ -379,7 +379,6 @@ function Index() {
             initial="offscreen"
             whileInView="onscreen"
             viewport={{ once: true, amount: 0.3 }}
-            whileHover="hover"
             className="py-20"
           >
             <motion.div 
@@ -393,18 +392,19 @@ function Index() {
               </h2>
               <div className="w-20 h-1 bg-[#feb649] mx-auto"></div>
             </motion.div>
-            
-            <div className="w-[90vw] mx-auto max-w-[1170px] grid gap-8 md:grid-cols-2">
+
+            <div className="flex flex-col items-center">
               {projectObj.map((item, id) => (
                 <motion.div
                   key={id}
                   initial={{ opacity: 0, y: 50 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   transition={{ delay: id * 0.2 }}
+                  className="w-[70%] mb-8"
                 >
                   <Link to={item.ProjectGitLink}>
                     <motion.article 
-                      className="relative bg-[#feb649] rounded-md group"
+                      className="relative bg-[#feb649] rounded-md group overflow-hidden"
                       whileHover={{ 
                         scale: 1.05,
                         transition: { duration: 0.2 }
@@ -418,12 +418,12 @@ function Index() {
                       <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-center text-white opacity-0 transition-opacity duration-300 group-hover:opacity-100">
                         <h4 className="text-lg font-bold mb-2">{item.title}</h4>
                         <p className="text-white">{item.text}</p>
-                      </div>
+                  </div>
                     </motion.article>
-                  </Link>
+              </Link>
                 </motion.div>
               ))}
-            </div>
+        </div>
           </motion.section>
            {/* skills section */}
           <motion.section 
@@ -474,13 +474,13 @@ function Index() {
                           <span className="absolute -top-8 transform -translate-x-1/2 text-[#453227] left-full top-[0.8rem]" >
                             {x.percentage}
                           </span>
-                        </div>
+        </div>
                       </div>
                     </motion.div>
                   ))}
                 </motion.article>
               ))}
-            </div>
+                    </div>
           </motion.section>
 
           {/* contact section */}
@@ -493,15 +493,15 @@ function Index() {
             whileHover="hover"
             className="relative min-h-[40vh] py-40"
           >
-            <video
-              autoPlay
-              muted
-              loop
+        <video
+          autoPlay
+          muted
+          loop
               className="absolute inset-0 w-full h-full object-cover -z-20"
-              poster={project1}
-            >
-              <source src={vid} type="video/mp4" />
-            </video> 
+          poster={project1}
+        >
+          <source src={vid} type="video/mp4" />
+        </video>
             
             <motion.div 
               initial={{ y: 100, opacity: 0 }}
@@ -540,7 +540,7 @@ function Index() {
                   >
                     abinvv9108834737@gmail.com
                   </motion.a>
-                </div>
+          </div>
 
                 <div className="flex flex-col items-center justify-center gap-2 text-[#617d98] text-lg mb-4">
                   <span>You can also reach me on LinkedIn at</span>
@@ -552,7 +552,7 @@ function Index() {
                   >
                     Abin Vinod
                   </motion.a>
-                </div>
+        </div>
               </motion.div>
             </motion.div>
           </motion.section>
@@ -564,7 +564,7 @@ function Index() {
             transition={{ duration: 0.5 }}
             className="pb-8 bg-[#222] grid place-items-center"
           >
-            <SocialLinks />
+        <SocialLinks />
             <p className="text-lg capitalize text-[#feb649]">
               &copy; <span id="date">{new Date().getFullYear()}</span> abin v v. all rights reserved
             </p>
