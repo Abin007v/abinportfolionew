@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&family=Open+Sans:wght@400;500&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -15,7 +17,7 @@
 
 /* Optional: If you want to keep scrollbar only for certain elements */
 .show-scrollbar::-webkit-scrollbar {
-  display: block;
+    display: block;
   width: 8px;
 }
 

@@ -30,7 +30,7 @@ const projectObj = [
   },
   {
     image: project4,
-    title: "MERN-portfolio",
+    title: "portfolio",
     text: "click me for source",
     projectDesc:
       "A portfolio which display user info and update their information dynamically.",

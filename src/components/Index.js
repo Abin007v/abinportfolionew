@@ -124,7 +124,7 @@ function Index() {
           initial="initial"
           animate="animate"
         >
-          {/* profile sction */}
+          {/* profile section */}
           <motion.header 
             variants={childVariants}
             ref={headerRef}
@@ -132,9 +132,12 @@ function Index() {
             whileInView="onscreen"
             viewport={{ once: true, amount: 0.3 }}
             whileHover="hover"
-            className="bg-[#fef9e7] cursor-pointer"
+            className="h-screen flex items-center justify-center px-4"
           >
-            <div className="w-[90vw] mx-auto max-w-[1170px] min-h-[calc(100vh-5rem)] grid place-items-center md:grid-cols-2 md:gap-8">
+            {/* Background Container */}
+            <div className="absolute inset-x-0 w-[90%] md:w-[85%] h-[90%] mx-auto bg-[#fef9e7] rounded-2xl -z-10" />
+
+            <div className="w-[90vw] mx-auto max-w-[1170px] h-full grid place-items-center md:grid-cols-2 md:gap-8">
               <motion.article
                 initial={{ opacity: 0, x: -100 }}
                 whileInView={{ opacity: 1, x: 0 }}
@@ -200,7 +203,7 @@ function Index() {
                   whileInView={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.5, delay: 0.9 }}
                 >
-                  <SocialLinks />
+                  <SocialLinks isFooter={false} />
                 </motion.div>
               </motion.article>
               
@@ -270,16 +273,31 @@ function Index() {
             whileInView="onscreen"
             viewport={{ once: true, amount: 0.3 }}
             whileHover="hover"
-            className="py-20 cursor-pointer"
+            className="relative min-h-[80vh] py-16 cursor-pointer overflow-hidden"
           >
+            {/* Video Background Container */}
+            <div className="absolute inset-x-0 top-0 bottom-0 w-[90%] md:w-[85%] mx-auto -z-20">
+              <div className="relative w-full h-full rounded-2xl overflow-hidden">
+                <video
+                  autoPlay
+                  muted
+                  loop
+                  className="absolute inset-0 w-full h-full object-cover"
+                  poster={project1}
+                >
+                  <source src={vid} type="video/mp4" />
+                </video>
+        </div>
+            </div>
+
             <motion.div 
               initial={{ opacity: 0 }}
               whileInView={{ opacity: 1 }}
               transition={{ delay: 0.2 }}
-              className="w-[90vw] mx-auto max-w-[1170px] grid gap-12 md:grid-cols-2 items-center"
+              className="w-[90vw] mx-auto max-w-[1170px] grid gap-8 md:gap-16 md:grid-cols-[0.8fr,2fr] items-center"
             >
               <motion.article 
-                className="relative w-fit"
+                className="relative w-fit mx-auto md:mx-0"
                 initial={{ opacity: 0, scale: 0.8, x: -100 }}
                 whileInView={{ opacity: 1, scale: 1, x: 0 }}
                 transition={{ 
@@ -291,7 +309,7 @@ function Index() {
               >
                 <motion.img 
                   src={aboutImg} 
-                  className="max-w-[25rem] h-[30rem] object-cover rounded-md relative z-10" 
+                  className="w-[250px] sm:w-[300px] md:max-w-[22rem] h-[350px] sm:h-[400px] md:h-[32rem] object-cover rounded-md relative z-10"
                   alt="about"
                   variants={{
                     initial: { 
@@ -314,7 +332,7 @@ function Index() {
                   }}
                 />
                 <motion.div 
-                  className="absolute w-full h-full border-4 border-[#feb649] top-8 -left-8 rounded-md"
+                  className="absolute w-full h-full border-4 border-white top-8 -left-8 rounded-md hidden sm:block"
                   variants={{
                     initial: {
                       opacity: 0.5,
@@ -344,14 +362,15 @@ function Index() {
                   bounce: 0.4,
                   delay: 0.6
                 }}
+                className="bg-white/90 backdrop-blur-sm rounded-lg shadow-xl p-6 md:p-8 w-full"
               >
                 <motion.div 
-                  className="text-center md:text-left mb-16"
+                  className="text-center md:text-left mb-6"
                   initial={{ opacity: 0, y: 20 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   transition={{ delay: 0.8 }}
                 >
-                  <h2 className="text-4xl capitalize tracking-[0.25rem] leading-tight mb-3 font-['Roboto']">
+                  <h2 className="text-3xl sm:text-4xl capitalize tracking-[0.25rem] leading-tight mb-3 font-['Roboto']">
                     about
                   </h2>
                   <motion.div 
@@ -365,7 +384,7 @@ function Index() {
                   initial={{ opacity: 0, y: 20 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   transition={{ delay: 1.2 }}
-                  className="text-[#617d98] mb-5"
+                  className="text-[#617d98] text-sm sm:text-base leading-relaxed sm:leading-loose font-['Open_Sans'] tracking-wide"
                 >
                   {about}
                 </motion.p>
@@ -433,54 +452,63 @@ function Index() {
             whileInView="onscreen"
             viewport={{ once: true, amount: 0.3 }}
             whileHover="hover"
-            className="py-20 bg-[#fef9e7]"
+            className="relative py-20 cursor-pointer"
           >
+            {/* Background Container */}
+            <div className="absolute inset-x-0 w-[90%] md:w-[85%] h-[90%] mx-auto bg-[#fef9e7] rounded-2xl -z-10" />
+
             <motion.div 
               initial={{ opacity: 0 }}
               whileInView={{ opacity: 1 }}
               transition={{ delay: 0.2 }}
-              className="text-center mb-16"
+              className="w-[90vw] mx-auto max-w-[1170px]"
             >
-              <h2 className="text-4xl capitalize tracking-[0.25rem] leading-tight mb-3 font-['Roboto']">
-                skills
-              </h2>
-              <div className="w-20 h-1 bg-[#feb649] mx-auto"></div>
+              <div className="text-center mb-16">
+                <h2 className="text-4xl capitalize tracking-[0.25rem] leading-tight mb-3 font-['Roboto']">
+                  skills
+                </h2>
+                <div className="w-20 h-1 bg-[#feb649] mx-auto"></div>
+              </div>
+              
+              <div className="grid gap-8 md:grid-cols-2">
+                {skillobj.map((item, id) => (
+                  <motion.article 
+                    key={id}
+                    initial={{ opacity: 0, x: id % 2 === 0 ? -50 : 50 }}
+                    whileInView={{ opacity: 1, x: 0 }}
+                    transition={{ delay: id * 0.2 }}
+                    className="mb-8"
+                  >
+                    <h3 className="text-2xl mb-6 text-[#453227] font-['Roboto'] tracking-wide">
+                      {item.name}
+                    </h3>
+                    {item.skillatributes.map((x, i) => (
+                      <motion.div 
+                        key={i}
+                        initial={{ width: 0 }}
+                        whileInView={{ width: x.percentage }}
+                        transition={{ duration: 1, delay: i * 0.1 }}
+                        className="mb-5"
+                      >
+                        <p className="capitalize mb-2 text-[#453227] font-['Open_Sans'] text-base tracking-wider">
+                          {x.skillname}
+                        </p>
+                        <div className="h-4 bg-white rounded-md">
+                          <div 
+                            className={`h-full bg-[#feb649] rounded-md relative`}
+                            style={{ width: x.percentage }}
+                          >
+                            <span className="absolute -top-8 transform -translate-x-1/2 text-[#453227] left-full top-[0.8rem] font-['Open_Sans'] font-medium" >
+                              {x.percentage}
+                            </span>
+                          </div>
+                        </div>
+                      </motion.div>
+                    ))}
+                  </motion.article>
+                ))}
+              </div>
             </motion.div>
-            
-            <div className="w-[90vw] mx-auto max-w-[1170px] grid gap-8 md:grid-cols-2">
-              {skillobj.map((item, id) => (
-                <motion.article 
-                  key={id}
-                  initial={{ opacity: 0, x: id % 2 === 0 ? -50 : 50 }}
-                  whileInView={{ opacity: 1, x: 0 }}
-                  transition={{ delay: id * 0.2 }}
-                  className="mb-8"
-                >
-                  <h3 className="text-2xl mb-6 text-[#453227]">{item.name}</h3>
-                  {item.skillatributes.map((x, i) => (
-                    <motion.div 
-                      key={i}
-                      initial={{ width: 0 }}
-                      whileInView={{ width: x.percentage }}
-                      transition={{ duration: 1, delay: i * 0.1 }}
-                      className="mb-5"
-                    >
-                      <p className="capitalize mb-2 text-[#453227]">{x.skillname}</p>
-                      <div className="h-4 bg-white rounded-md">
-                        <div 
-                          className={`h-full bg-[#feb649] rounded-md relative`}
-                          style={{ width: x.percentage }}
-                        >
-                          <span className="absolute -top-8 transform -translate-x-1/2 text-[#453227] left-full top-[0.8rem]" >
-                            {x.percentage}
-                          </span>
-        </div>
-                      </div>
-                    </motion.div>
-                  ))}
-                </motion.article>
-              ))}
-                    </div>
           </motion.section>
 
           {/* contact section */}
@@ -491,17 +519,23 @@ function Index() {
             whileInView="onscreen"
             viewport={{ once: true, amount: 0.3 }}
             whileHover="hover"
-            className="relative min-h-[40vh] py-40"
+            className="relative py-16 mb-20 cursor-pointer overflow-hidden"
           >
-        <video
-          autoPlay
-          muted
-          loop
-              className="absolute inset-0 w-full h-full object-cover -z-20"
-          poster={project1}
-        >
-          <source src={vid} type="video/mp4" />
-        </video>
+            {/* Video Background Container */}
+            <div className="absolute inset-x-0 top-0 bottom-0 w-[90%] md:w-[85%] mx-auto -z-20 h-full"
+            >
+              <div className="relative w-full h-full rounded-2xl overflow-hidden">
+                <video
+                  autoPlay
+                  muted
+                  loop
+                  className="absolute inset-0 w-full h-full object-cover"
+                  poster={project1}
+                >
+                  <source src={vid} type="video/mp4" />
+                </video>
+              </div>
+            </div>
             
             <motion.div 
               initial={{ y: 100, opacity: 0 }}
@@ -511,48 +545,50 @@ function Index() {
                 type: "spring",
                 bounce: 0.3
               }}
-              className="bg-[#fef9e7] p-12 text-center rounded-2xl max-w-xs sm:max-w-sm md:max-w-md lg:max-w-lg xl:max-w-xl 2xl:max-w-3xl mx-auto clip-path-polygon"
+              className="w-[90vw] max-w-[800px] mx-auto relative"
             >
-              <motion.div 
+              <motion.div
+                className="bg-white/90 backdrop-blur-sm p-8 sm:p-12 text-center rounded-2xl shadow-xl"
                 initial={{ y: 20, opacity: 0 }}
                 whileInView={{ y: 0, opacity: 1 }}
                 transition={{ delay: 0.2, duration: 0.5 }}
-                className="mb-8"
               >
-                <h2 className="text-4xl capitalize tracking-[0.25rem] leading-tight mb-3 font-['Roboto']">
-                  let's get in touch
-                </h2>
-                <div className="w-20 h-1 bg-[#feb649] mx-auto"></div>
-              </motion.div>
-              <motion.div 
-                initial={{ y: 20, opacity: 0 }}
-                whileInView={{ y: 0, opacity: 1 }}
-                transition={{ delay: 0.4, duration: 0.5 }}
-                className="mx-auto px-4"
-              >
-                <div className="flex flex-col items-center justify-center gap-2 text-[#617d98] text-lg mb-4">
-                  <span>If you are looking to get ahold of me, you can send me an email at</span>
-                  <motion.a 
-                    href="mailto:abinvv9108834737@gmail.com" 
-                    className="text-[#feb649] uppercase hover:text-[#453227] transition-colors duration-300 break-all text-center"
-                    whileHover={{ scale: 1.05 }}
-                    whileTap={{ scale: 0.95 }}
-                  >
-                    abinvv9108834737@gmail.com
-                  </motion.a>
-          </div>
+                <div className="mb-8">
+                  <h2 className="text-4xl capitalize tracking-[0.25rem] leading-tight mb-3 font-['Roboto']">
+                    let's get in touch
+                  </h2>
+                  <div className="w-20 h-1 bg-[#feb649] mx-auto"></div>
+                </div>
+                <motion.div 
+                  initial={{ y: 20, opacity: 0 }}
+                  whileInView={{ y: 0, opacity: 1 }}
+                  transition={{ delay: 0.4, duration: 0.5 }}
+                  className="mx-auto px-4"
+                >
+                  <div className="flex flex-col items-center justify-center gap-2 text-[#617d98] text-lg mb-4">
+                    <span>If you are looking to get ahold of me, you can send me an email at</span>
+                    <motion.a 
+                      href="mailto:abinvv9108834737@gmail.com" 
+                      className="text-[#feb649] uppercase hover:text-[#453227] transition-colors duration-300 break-all text-center"
+                      whileHover={{ scale: 1.05 }}
+                      whileTap={{ scale: 0.95 }}
+                    >
+                      abinvv9108834737@gmail.com
+                    </motion.a>
+                  </div>
 
-                <div className="flex flex-col items-center justify-center gap-2 text-[#617d98] text-lg mb-4">
-                  <span>You can also reach me on LinkedIn at</span>
-                  <motion.a 
-                    href="https://www.linkedin.com/in/abin-vinod-a50b65227"
-                    className="text-[#feb649] uppercase hover:text-[#453227] transition-colors duration-300 break-all text-center"
-                    whileHover={{ scale: 1.05 }}
-                    whileTap={{ scale: 0.95 }}
-                  >
-                    Abin Vinod
-                  </motion.a>
-        </div>
+                  <div className="flex flex-col items-center justify-center gap-2 text-[#617d98] text-lg mb-4">
+                    <span>You can also reach me on LinkedIn at</span>
+                    <motion.a 
+                      href="https://www.linkedin.com/in/abin-vinod-a50b65227"
+                      className="text-[#feb649] uppercase hover:text-[#453227] transition-colors duration-300 break-all text-center"
+                      whileHover={{ scale: 1.05 }}
+                      whileTap={{ scale: 0.95 }}
+                    >
+                      Abin Vinod
+                    </motion.a>
+                  </div>
+                </motion.div>
               </motion.div>
             </motion.div>
           </motion.section>
@@ -564,7 +600,7 @@ function Index() {
             transition={{ duration: 0.5 }}
             className="pb-8 bg-[#222] grid place-items-center"
           >
-        <SocialLinks />
+            <SocialLinks isFooter={true} />
             <p className="text-lg capitalize text-[#feb649]">
               &copy; <span id="date">{new Date().getFullYear()}</span> abin v v. all rights reserved
             </p>
