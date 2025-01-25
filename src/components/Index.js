@@ -524,10 +524,10 @@ function Index() {
             initial="offscreen"
             whileInView="onscreen"
             viewport={{ once: true, amount: 0.2 }}
-            className="relative py-16 mb-20 cursor-pointer overflow-hidden"
+            className="relative py-16 mb-20 mt-20 cursor-pointer overflow-hidden"
           >
             {/* Background Image Container */}
-            <div className="absolute inset-x-0 top-0 bottom-0 w-[90%] md:w-[85%] mx-auto -z-20 h-full">
+            <div className="absolute inset-x-0 top-0 bottom-0 w-[90%] md:w-[85%] mx-auto -z-20 h-full h-70">
               <div className="relative w-full h-full rounded-2xl overflow-hidden">
                 <motion.div 
                   initial={{ scale: 1.05 }}
